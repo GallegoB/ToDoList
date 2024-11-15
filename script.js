@@ -20,7 +20,40 @@ let item = `<div class="item">
 </button>`;
 
 const listItems = document.querySelector('.list-items');
-console.log(listItems);
 listItems.innerHTML += item;
+
+const btnDelete = document.querySelectorAll('.btn-delete');
+console.log(btnDelete);
+btnDelete.forEach(i => {
+    console.log('btn-delete');
+    i.addEventListener('click', function(){
+        console.log('btn-delete cliqué');
+        i.parentElement.remove();
+    })
+});
+
+// Je sélectionne tous les boutons btn-archive existants dans la page
+const btnArchive = document.querySelectorAll('.btn-archive'); 
+console.log(btnArchive); 
+
+btnArchive.forEach(i => {
+    console.log('btn-archive'); 
+    i.addEventListener('click', function(){
+        // Je cible l'élément parent de i
+        //const parent = i.parentElement; 
+        // J'agis sur la DIV parent (class item)
+        i.parentElement.classList.toggle('done'); 
+    }); 
+}); 
+
+// form.addEventListener('submit', function(e) {
+//     const btnArchive = document.querySelectorAll('.btn-archive');
+//     console.log(btnArchive);
+    
+// });
+
+   // Réinitialiser le formulaire
+   form.reset(); 
+
 });
 
